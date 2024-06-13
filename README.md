@@ -24,7 +24,7 @@ Our work is based on:
 [3] https://github.com/neuralchen/SimSwap
 
 ### Dataset
-https://github.com/ZOMIN28/OSN-transmission_mini_CelebA/tree/main
+https://github.com/ZOMIN28/OSN-transmission_mini_CelebA
 
 ### Reference
 
