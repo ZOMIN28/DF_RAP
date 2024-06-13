@@ -1,0 +1,31 @@
+--- /usr/local/lib/python3.5/dist-packages/torch/nn/modules/activation.py
++++ /usr/local/lib/python3.5/dist-packages/torch/nn/modules/activation.py
+@@ -2,14 +2,15 @@
+     r"""Applies the element-wise function:
+ 
+     .. math::
+-        \text{Sigmoid}(x) = \sigma(x) = \frac{1}{1 + \exp(-x)}
++        \text{Sigmoid}(x) = \frac{1}{1 + \exp(-x)}
+ 
+ 
+     Shape:
+-        - Input: :math:`(*)`, where :math:`*` means any number of dimensions.
+-        - Output: :math:`(*)`, same shape as the input.
++        - Input: :math:`(N, *)` where `*` means, any number of additional
++          dimensions
++        - Output: :math:`(N, *)`, same shape as the input
+ 
+-    .. image:: ../scripts/activation_images/Sigmoid.png
++    .. image:: scripts/activation_images/Sigmoid.png
+ 
+     Examples::
+ 
+@@ -18,6 +19,7 @@
+         >>> output = m(input)
+     """
+ 
+-    def forward(self, input: Tensor) -> Tensor:
++    @weak_script_method
++    def forward(self, input):
+         return torch.sigmoid(input)
+ 

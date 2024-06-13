@@ -1,0 +1,48 @@
+--- /usr/local/lib/python3.5/dist-packages/torch/nn/modules/activation.py
++++ /usr/local/lib/python3.5/dist-packages/torch/nn/modules/activation.py
+@@ -32,14 +32,15 @@
+         init (float): the initial value of :math:`a`. Default: 0.25
+ 
+     Shape:
+-        - Input: :math:`( *)` where `*` means, any number of additional
+-          dimensions.
+-        - Output: :math:`(*)`, same shape as the input.
++        - Input: :math:`(N, *)` where `*` means, any number of additional
++          dimensions
++        - Output: :math:`(N, *)`, same shape as the input
+ 
+     Attributes:
+-        weight (Tensor): the learnable weights of shape (:attr:`num_parameters`).
++        weight (Tensor): the learnable weights of shape (attr:`num_parameters`).
++            The attr:`dtype` is default to
+ 
+-    .. image:: ../scripts/activation_images/PReLU.png
++    .. image:: scripts/activation_images/PReLU.png
+ 
+     Examples::
+ 
+@@ -47,19 +48,16 @@
+         >>> input = torch.randn(2)
+         >>> output = m(input)
+     """
+-    __constants__ = ['num_parameters']
+-    num_parameters: int
+ 
+-    def __init__(self, num_parameters: int = 1, init: float = 0.25,
+-                 device=None, dtype=None) -> None:
+-        factory_kwargs = {'device': device, 'dtype': dtype}
++    def __init__(self, num_parameters=1, init=0.25):
+         self.num_parameters = num_parameters
+         super(PReLU, self).__init__()
+-        self.weight = Parameter(torch.empty(num_parameters, **factory_kwargs).fill_(init))
++        self.weight = Parameter(torch.Tensor(num_parameters).fill_(init))
+ 
+-    def forward(self, input: Tensor) -> Tensor:
++    @weak_script_method
++    def forward(self, input):
+         return F.prelu(input, self.weight)
+ 
+-    def extra_repr(self) -> str:
++    def extra_repr(self):
+         return 'num_parameters={}'.format(self.num_parameters)
+ 

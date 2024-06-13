@@ -1,0 +1,43 @@
+--- /usr/local/lib/python3.5/dist-packages/torch/nn/modules/pooling.py
++++ /usr/local/lib/python3.5/dist-packages/torch/nn/modules/pooling.py
+@@ -13,13 +13,9 @@
+                                                    \text{stride[1]} \times w + n)
+         \end{aligned}
+ 
+-    If :attr:`padding` is non-zero, then the input is implicitly padded with negative infinity on both sides
++    If :attr:`padding` is non-zero, then the input is implicitly zero-padded on both sides
+     for :attr:`padding` number of points. :attr:`dilation` controls the spacing between the kernel points.
+     It is harder to describe, but this `link`_ has a nice visualization of what :attr:`dilation` does.
+-
+-    Note:
+-        When ceil_mode=True, sliding windows are allowed to go off-bounds if they start within the left padding
+-        or the input. Sliding windows that would start in the right padded region are ignored.
+ 
+     The parameters :attr:`kernel_size`, :attr:`stride`, :attr:`padding`, :attr:`dilation` can either be:
+ 
+@@ -37,8 +33,8 @@
+         ceil_mode: when True, will use `ceil` instead of `floor` to compute the output shape
+ 
+     Shape:
+-        - Input: :math:`(N, C, H_{in}, W_{in})` or :math:`(C, H_{in}, W_{in})`
+-        - Output: :math:`(N, C, H_{out}, W_{out})` or :math:`(C, H_{out}, W_{out})`, where
++        - Input: :math:`(N, C, H_{in}, W_{in})`
++        - Output: :math:`(N, C, H_{out}, W_{out})`, where
+ 
+           .. math::
+               H_{out} = \left\lfloor\frac{H_{in} + 2 * \text{padding[0]} - \text{dilation[0]}
+@@ -61,12 +57,8 @@
+         https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md
+     """
+ 
+-    kernel_size: _size_2_t
+-    stride: _size_2_t
+-    padding: _size_2_t
+-    dilation: _size_2_t
+-
+-    def forward(self, input: Tensor) -> Tensor:
++    @weak_script_method
++    def forward(self, input):
+         return F.max_pool2d(input, self.kernel_size, self.stride,
+                             self.padding, self.dilation, self.ceil_mode,
+                             self.return_indices)
