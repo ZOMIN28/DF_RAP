@@ -1,6 +1,6 @@
 # DF-RAP: A Robust Adversarial Perturbation for Defending against Deepfakes in Real-world Social Network Scenarios
 Implementation of "DF-RAP: A Robust Adversarial Perturbation for Defending against Deepfakes in Real-world Social Network Scenarios".
-<img src="images\Real-world Scenarios.png" alt="Real-world Scenarios" style="zoom:80%;" />
+<img src="images\Real-world Scenarios.png" alt="Real-world Scenarios" style="zoom:67%;" />
 
 ### Usage
 
@@ -28,10 +28,12 @@ Our work is based on:
 https://github.com/ZOMIN28/OSN-transmission_mini_CelebA
 
 ### Visualization
-## PGD-Based
-<img src="images\output.png" alt="output" style="zoom:80%;" />
-## Generator-Based
-<img src="images\output2.png" alt="output2" style="zoom:80%;" />
+#### PGD-Based
+<img src="images\output.png" alt="output" style="zoom:67%;" />
+
+#### Generator-Based
+<img src="images\output2.png" alt="output2" style="zoom:67%;" />
+
 ### Reference
 
 ```
