@@ -1,5 +1,6 @@
 # DF-RAP: A Robust Adversarial Perturbation for Defending against Deepfakes in Real-world Social Network Scenarios
 Implementation of "DF-RAP: A Robust Adversarial Perturbation for Defending against Deepfakes in Real-world Social Network Scenarios".
+[Real-world Scenarios.png](images/Real-world Scenarios.png)
 
 ### Usage
 
