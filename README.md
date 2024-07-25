@@ -34,7 +34,7 @@ https://github.com/ZOMIN28/OSN-transmission_mini_CelebA
 #### Generator-Based
 <img src="images\output2.png" alt="output2" style="zoom:67%;" />
 
-### Cition
+### Citation
 
 ```
 @article{qu2024df,
