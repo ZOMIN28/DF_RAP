@@ -18,14 +18,16 @@ The pretrained model of `StarGAN` is available in [StarGAN](https://www.dropbox.
 
 Our work is based on:
 
-[1] https://github.com/mlomnitz/DiffJPEG
+[1] [DiffJPEG](https://github.com/mlomnitz/DiffJPEG)
 
-[2] https://github.com/yunjey/stargan
+[2] [StarGAN](https://github.com/yunjey/stargan)
 
-[3] https://github.com/neuralchen/SimSwap
+[3] [SimSwap](https://github.com/neuralchen/SimSwap)
+
+[4] [Disrupting](https://github.com/natanielruiz/disrupting-deepfakes)
 
 ### Dataset
-https://github.com/ZOMIN28/OSN-transmission_mini_CelebA
+We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA).
 
 ### Visualization
 #### PGD-Based
