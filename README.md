@@ -14,17 +14,6 @@ The pretrained model of `SimSwap` and `Arcface` is available in [SimSwap (old)](
 
 The pretrained model of `StarGAN` is available in [StarGAN](https://www.dropbox.com/s/zdq6roqf63m0v5f/celeba-256x256-5attrs.zip?dl=0). Put it in `DF-RAP/checkpoints/stargan_celeba_256/models/`.
 
-### Acknowledges
-
-Our work is based on:
-
-[1] [DiffJPEG](https://github.com/mlomnitz/DiffJPEG)
-
-[2] [StarGAN](https://github.com/yunjey/stargan)
-
-[3] [SimSwap](https://github.com/neuralchen/SimSwap)
-
-[4] [Disrupting](https://github.com/natanielruiz/disrupting-deepfakes)
 
 ### Dataset
 We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA).
@@ -47,3 +36,15 @@ We have made the OSN transmission image dataset mentioned in this work publicly 
   publisher={IEEE}
 }
 ```
+
+### Acknowledges
+
+Our work is based on:
+
+[1] [DiffJPEG](https://github.com/mlomnitz/DiffJPEG)
+
+[2] [StarGAN](https://github.com/yunjey/stargan)
+
+[3] [SimSwap](https://github.com/neuralchen/SimSwap)
+
+[4] [Disrupting](https://github.com/natanielruiz/disrupting-deepfakes)
