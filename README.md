@@ -3,6 +3,7 @@ Implementation of "DF-RAP: A Robust Adversarial Perturbation for Defending again
 <img src="images\Real-world Scenarios.png" alt="Real-world Scenarios" style="zoom:67%;" />
 
 ### Usage
+Install the required dependency packages given in requirements.txt.
 
 You can follow `demo.ipynb` to implement robust adversarial attacks against Deepfakes.
 
