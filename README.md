@@ -2,12 +2,12 @@
 Implementation of "DF-RAP: A Robust Adversarial Perturbation for Defending against Deepfakes in Real-world Social Network Scenarios".
 <img src="images\Real-world Scenarios.png" alt="Real-world Scenarios" style="zoom:67%;" />
 
-### Usage
+### 1、Usage
 Install the required dependency packages given in requirements.txt.
 
 You can follow `demo.ipynb` to implement robust adversarial attacks against Deepfakes.
 
-### Pretrained model
+### 2、Pretrained model
 
 The pretrained model of `ComGAN` and `PertG` is available in [ComGAN & PertG](https://drive.google.com/file/d/1Hk-oraxtStH16BPf_2dveMdrncTSJOcI/view?usp=drive_link). Put them in `DF-RAP/checkpoints/`  .
 
@@ -16,17 +16,18 @@ The pretrained model of `SimSwap` and `Arcface` is available in [SimSwap (old)](
 The pretrained model of `StarGAN` is available in [StarGAN](https://www.dropbox.com/s/zdq6roqf63m0v5f/celeba-256x256-5attrs.zip?dl=0). Put it in `DF-RAP/checkpoints/stargan_celeba_256/models/`.
 
 
-### Dataset
+### 3、Dataset
 We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA).
 
-### Visualization
-#### PGD-Based
+### 4、Example
+The figure below shows the defense effect of robust adversarial perturbations derived using PGD as the basic attack.
 <img src="images\output.png" alt="output" style="zoom:67%;" />
 
-#### Generator-Based
+### 5、Downstream tasks
+Beyond this paper, we further explore the possibility of combining the proposed method with generation-based adversarial attacks. The implementation details are given in the demo. The figure below shows the defense effect on StarGAN. This shows that our work can be used as a plug-and-play plugin in the community.
 <img src="images\output2.png" alt="output2" style="zoom:67%;" />
 
-### Citation
+### 6、Citation
 
 ```
 @article{qu2024df,
