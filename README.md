@@ -28,7 +28,7 @@ Beyond this paper, we further explore the possibility of combining the proposed 
 ```
 python train_pG.py
 ```
-After training, you can quickly generate df-rap using the following code:
+After training, you can quickly generate DF-RAP using the following code:
 ```python
 pertG = torch.load('checkpoints/PertG/df-rap_Gen_stargan.pt').to(device)
 pertG.eval()
