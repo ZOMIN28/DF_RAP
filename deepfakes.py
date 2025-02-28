@@ -1,12 +1,13 @@
 import torch
 import net.stargan as stargan
-from utils.utils import denorm
+from utils.utils import denorm, create_labels
 from PIL import Image
 from torchvision import transforms
 import torch.nn.functional as F
 import sys
 sys.path.insert(0, 'SimSwap/')
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
 """
 ---------------------------------------------------------------
                             stargan
@@ -25,6 +26,12 @@ def stargan_fake(img, c_trg, starG):
     with torch.no_grad():
         gen_img = starG(img, c_trg)
     return gen_img
+
+
+def processorg_stargan(c_org,c_dim=5):
+    selected_attrs = ['Black_Hair', 'Blond_Hair', 'Brown_Hair', 'Male', 'Young']
+    c_trg_list = create_labels(c_org, c_dim, selected_attrs)
+    return c_trg_list
 
 
 """
