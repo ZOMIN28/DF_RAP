@@ -19,7 +19,7 @@ The pretrained model of `StarGAN` is available in [StarGAN](https://www.dropbox.
 ### 3、Dataset
 We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA).
 
-### 4、Example
+### 4、Test
 The figure below shows the defense effect of robust adversarial perturbations derived using PGD as the basic attack.
 <img src="images\output.png" alt="output" style="zoom:67%;" />
 
