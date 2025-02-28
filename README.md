@@ -19,7 +19,7 @@ The pretrained model of `StarGAN` is available in [StarGAN](https://www.dropbox.
 
 
 ### 3、Dataset
-We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA), and put it in `data/` .
+We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA), and put it in `DF-RAP/data/` .
 
 ### 4、Test: simple DF-RAP generation
 You can generate the proposed DF-RAP using the following code:
