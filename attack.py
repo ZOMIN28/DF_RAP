@@ -30,7 +30,6 @@ class LinfPGDAttack(object):
 
     def perturb(self, X_nat, y, c_trg=None, img_att=None,latend_id=None, faketype=None, comgan=True):
 
-
         if self.rand:
             X = X_nat.clone().detach_() + torch.tensor(np.random.uniform(-self.epsilon, self.epsilon, X_nat.shape).astype('float32')).to(self.device)
         else:
@@ -43,15 +42,18 @@ class LinfPGDAttack(object):
             if faketype == "StarGAN":
                 self.model.zero_grad()
                 if not comgan:
-                     output, _ = self.model.features(X, c_trg)
+                    output, _ = self.model.features(X, c_trg)
                 else:
                     self.ComG.zero_grad()
-                    self.ComG_woj.zero_grad()
                     output1, _ = self.model.features(self.ComG(X), c_trg) 
-                    output2,_ = self.model.features(self.ComG_woj(X), c_trg)
-                    # You can adjust parameters to balance robust defenses against different deepfake models
-                    output = self.balance*output1 +  (1.0-self.balance)*output2
-                
+
+                    if self.ComG_woj is not None:
+                        self.ComG_woj.zero_grad()
+                        output2,_ = self.model.features(self.ComG_woj(X), c_trg)
+                        # You can adjust parameters to balance robust defenses against different deepfake models
+                        output = self.balance*output1 + (1.0-self.balance)*output2
+                    else:
+                        output = output1
 
             elif faketype == "simswap":
                 self.model.zero_grad()
@@ -67,15 +69,16 @@ class LinfPGDAttack(object):
                     latend_id1 = latend_id1 / torch.norm(latend_id1, p=2, dim=1, keepdim=True)
                     output1 = self.model(self.ComG(X), img_att, latend_id1, latend_id1, True)
 
-                    self.ComG_woj.zero_grad()
-                    img_id_downsample2 = Func.interpolate(self.ComG_woj(X), size=(112,112))
-                    latend_id2 = self.model.netArc(img_id_downsample2)
-                    latend_id2 = latend_id2 / torch.norm(latend_id2, p=2, dim=1, keepdim=True)
-                    output2 = self.model(self.ComG_woj(X), img_att, latend_id2, latend_id2, True)
-
-                    # You can adjust parameters to balance robust defenses against different deepfake models
-                    output = self.balance*output1 +  (1.0-self.balance)*output2
-    
+                    if self.ComG_woj is not None:
+                        self.ComG_woj.zero_grad()
+                        img_id_downsample2 = Func.interpolate(self.ComG_woj(X), size=(112,112))
+                        latend_id2 = self.model.netArc(img_id_downsample2)
+                        latend_id2 = latend_id2 / torch.norm(latend_id2, p=2, dim=1, keepdim=True)
+                        output2 = self.model(self.ComG_woj(X), img_att, latend_id2, latend_id2, True)
+                        # You can adjust parameters to balance robust defenses against different deepfake models
+                        output = self.balance*output1 + (1.0-self.balance)*output2
+                    else:
+                        output = output1
 
             # Minus in the loss means "towards" and plus means "away from"
             loss = self.loss_fn(output, y)
