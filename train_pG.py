@@ -2,8 +2,8 @@ import argparse
 parser = argparse.ArgumentParser(description='manual to this script')
 parser.add_argument("--gpus", type=int, default=0)
 parser.add_argument("--batch-size", type=int, default=16)
-parser.add_argument("--image-dir", type=str, default='data/celeba/images')
-parser.add_argument("--attr-path", type=str, default='Edata/celeba/list.txt')
+parser.add_argument("--image-dir", type=str, default='data/OSN-transmission_mini_CelebA/original_images/')
+parser.add_argument("--attr-path", type=str, default='data/OSN-transmission_mini_CelebA/attributes.txt')
 parser.add_argument("--selected-attrs", type=list, default=['Black_Hair', 'Blond_Hair', 'Brown_Hair', 'Male', 'Young'])
 args = parser.parse_args()
 
