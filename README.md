@@ -5,7 +5,9 @@ Implementation of "DF-RAP: A Robust Adversarial Perturbation for Defending again
 ### 1、Usage
 Install the required dependency packages given in requirements.txt.
 
-You can follow `demo.ipynb` to implement robust adversarial attacks against Deepfakes.
+Follow Parts 2 and 3 to download and configure the pre-trained model and dataset.
+
+You can follow `demo.ipynb` to implement the proposed DF-RAP.
 
 ### 2、Pretrained model 
 
