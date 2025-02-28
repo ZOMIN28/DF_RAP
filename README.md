@@ -26,7 +26,7 @@ The figure below shows the defense effect of robust adversarial perturbations de
 ### 5、Downstream tasks
 Beyond this paper, we further explore the possibility of combining the proposed method with generation-based adversarial attacks. You can train a DF-RAP generator against StarGAN by running the:
 ```
-python train_pG.py --
+python train_pG.py
 ```
 The figure below shows the defense effect, and you can test it in demo. This shows that our work can be used as a plug-and-play plugin in the community.
 <img src="images\output2.png" alt="output2" style="zoom:67%;" />
