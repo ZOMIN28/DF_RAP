@@ -7,9 +7,9 @@ Install the required dependency packages given in requirements.txt.
 
 You can follow `demo.ipynb` to implement robust adversarial attacks against Deepfakes.
 
-### 2、Pretrained model
+### 2、Pretrained model 
 
-The pretrained model of `ComGAN` and `PertG` is available in [ComGAN & PertG](https://drive.google.com/file/d/1Hk-oraxtStH16BPf_2dveMdrncTSJOcI/view?usp=drive_link). Put them in `DF-RAP/checkpoints/`  .
+The pretrained model of `ComGAN` and `PertG` is available in [ComGAN & PertG](https://drive.google.com/file/d/18opqlLzn5MCTboKkwcq58sSdkxKE3WOU/view?usp=drive_link). Put them in `DF-RAP/checkpoints/`  .
 
 The pretrained model of `SimSwap` and `Arcface` is available in [SimSwap (old)](https://drive.google.com/drive/folders/1tGqLa87UogpMoDbzthsclIcL52-jHbk_?usp=drive_link). Put them in `DF-RAP/SimSwap/arcface_model/`  and  `DF-RAP/SimSwap/checkpoints/` .
 
@@ -17,7 +17,7 @@ The pretrained model of `StarGAN` is available in [StarGAN](https://www.dropbox.
 
 
 ### 3、Dataset
-We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA).
+We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA), and put it in `data/` .
 
 ### 4、Test
 The figure below shows the defense effect of robust adversarial perturbations derived using PGD as the basic attack.
@@ -28,6 +28,17 @@ Beyond this paper, we further explore the possibility of combining the proposed 
 ```
 python train_pG.py
 ```
+After training, you can quickly generate df-rap using the following code:
+```python
+pertG = torch.load('checkpoints/PertG/df-rap_Gen_stargan.pt').to(device)
+pertG.eval()
+
+epsilon = 0.05
+pert = pertG(ori_image)
+pert = torch.clamp(pert, -epsilon, epsilon)
+adv_image = torch.clamp(ori_image+pert, -1.0, 1.0)
+```
+
 The figure below shows the defense effect, and you can test it in demo. This shows that our work can be used as a plug-and-play plugin in the community.
 <img src="images\output2.png" alt="output2" style="zoom:67%;" />
 
