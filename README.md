@@ -19,11 +19,21 @@ The pretrained model of `StarGAN` is available in [StarGAN](https://www.dropbox.
 ### 3、Dataset
 We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it here [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA), and put it in `data/` .
 
-### 4、Test
+### 4、Test: simple DF-RAP generation
+You can generate the proposed DF-RAP using the following code:
+```python
+ComG_model = torch.load('checkpoints/ComGAN/ComG_model.pt')
+ComG = ComG_model['ComG'].to(device)
+ComG.eval()
+starG = stargan_model()
+
+adv_image = adv_attack(ori_image, c_trg=c_trg, model=starG, device=device, faketype="StarGAN", ComG=ComG, comgan=True)
+```
+
 The figure below shows the defense effect of robust adversarial perturbations derived using PGD as the basic attack.
 <img src="images\output.png" alt="output" style="zoom:67%;" />
 
-### 5、Downstream tasks
+### 5、Downstream task: training a DF-RAP generator using ComGAN
 Beyond this paper, we further explore the possibility of combining the proposed method with generation-based adversarial attacks. You can train a DF-RAP generator against StarGAN by running the:
 ```
 python train_pG.py
