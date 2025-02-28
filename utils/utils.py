@@ -28,4 +28,24 @@ def Image2tensor(imagepath,process=False,resize=256):
     img = torch.unsqueeze(transform(img),dim=0).to(device)
     return img
 
-    
+
+def create_labels(c_org, c_dim=5, selected_attrs=None):
+    """Generate target domain labels for debugging and testing."""
+    # Get hair color indices.
+    hair_color_indices = []
+    for i, attr_name in enumerate(selected_attrs):
+        if attr_name in ['Black_Hair', 'Blond_Hair', 'Brown_Hair', 'Gray_Hair']:
+            hair_color_indices.append(i)
+
+    c_trg_list = []
+    for i in range(c_dim):
+        c_trg = c_org.clone()
+        if i in hair_color_indices:  # Set one hair color to 1 and the rest to 0.
+            c_trg[:, i] = 1
+            for j in hair_color_indices:
+                if j != i:
+                    c_trg[:, j] = 0
+        else:
+            c_trg[:, i] = (c_trg[:, i] == 0)  # Reverse attribute value.
+        c_trg_list.append(c_trg.to(device))
+    return c_trg_list
