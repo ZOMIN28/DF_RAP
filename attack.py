@@ -87,7 +87,7 @@ class LinfPGDAttack(object):
             grad = X.grad
             X_adv = X + self.a * grad.sign()
             eta = torch.clamp(X_adv - X_nat, min=-self.epsilon, max=self.epsilon)
-            X = torch.clamp(X_nat + eta, min=-1, max=1).detach_()
+            X = torch.clamp(X_nat + eta, min=-1., max=1.).detach_()
         self.model.zero_grad()
         return X, X - X_nat
 
@@ -103,15 +103,15 @@ def adv_attack(img, ComG, ComG_woj, model=None,device=None, epsilon=0.05, c_trg=
         with torch.no_grad():
             x_real = img
             gen_noattack = stargan_fake(x_real,c_trg,model)
-        _,perturb = pgd_attack.perturb(X_nat=img,y=gen_noattack,c_trg=c_trg,faketype=faketype,comgan=comgan)
-        X = img + perturb
+        _, perturb = pgd_attack.perturb(X_nat=img,y=gen_noattack,c_trg=c_trg,faketype=faketype,comgan=comgan)
+        X = torch.clamp(img + perturb, min=-1., max=1.)
 
     elif faketype == "simswap":
         with torch.no_grad():
             x_real = img
             gen_noattack = simswap_fake(img_att,x_real,model)
-        _,perturb = pgd_attack.perturb(X_nat=img,y=gen_noattack,img_att=img_att,faketype=faketype,comgan=comgan)
-        X = img + perturb
+        _, perturb = pgd_attack.perturb(X_nat=img,y=gen_noattack,img_att=img_att,faketype=faketype,comgan=comgan)
+        X = torch.clamp(img + perturb, min=-1., max=1.)
 
 
     return X
