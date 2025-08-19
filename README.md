@@ -11,15 +11,15 @@ You can follow `demo.ipynb` to implement the proposed DF-RAP.
 
 ### 2. Pretrained model 
 
-The pretrained model of `ComGAN` and `PertG` is available in [ComGAN & PertG](https://drive.google.com/file/d/18opqlLzn5MCTboKkwcq58sSdkxKE3WOU/view?usp=drive_link). Put them in `DF-RAP/checkpoints/`.
+The pretrained model of `ComGAN` and `PertG` is available at [ComGAN & PertG](https://drive.google.com/file/d/18opqlLzn5MCTboKkwcq58sSdkxKE3WOU/view?usp=drive_link). Put them at `DF-RAP/checkpoints/`.
 
-The pretrained model of `SimSwap` and `Arcface` is available in [SimSwap (old)](https://drive.google.com/drive/folders/1tGqLa87UogpMoDbzthsclIcL52-jHbk_?usp=drive_link). Put them in `DF-RAP/SimSwap/arcface_model/`  and  `DF-RAP/SimSwap/checkpoints/`.
+The pretrained model of `SimSwap` and `Arcface` is available at [SimSwap (old)](https://drive.google.com/drive/folders/1tGqLa87UogpMoDbzthsclIcL52-jHbk_?usp=drive_link). Put them at `DF-RAP/SimSwap/arcface_model/`  and  `DF-RAP/SimSwap/checkpoints/`.
 
-The pretrained model of `StarGAN` is available in [StarGAN](https://www.dropbox.com/s/zdq6roqf63m0v5f/celeba-256x256-5attrs.zip?dl=0). Put it in `DF-RAP/checkpoints/stargan_celeba_256/models/`.
+The pretrained model of `StarGAN` is available at [StarGAN](https://www.dropbox.com/s/zdq6roqf63m0v5f/celeba-256x256-5attrs.zip?dl=0). Put it at `DF-RAP/checkpoints/stargan_celeba_256/models/`.
 
 
 ### 3. Dataset
-We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it in [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA), and put it in `DF-RAP/data/`.
+We have made the OSN transmission image dataset mentioned in this work publicly available. You can get it at [OSN-transmission mini CelebA](https://github.com/ZOMIN28/OSN-transmission_mini_CelebA), and put it at `DF-RAP/data/`.
 
 ### 4. Test: simple DF-RAP generation
 You can generate the proposed DF-RAP using the following code:
