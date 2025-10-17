@@ -58,13 +58,16 @@ The figure below shows the defense effect, and you can test it in demo. This sho
 If our paper helps your research, please cite it in your publications:
 ```
 @article{qu2024df,
-  title={DF-RAP: A Robust Adversarial Perturbation for Defending against Deepfakes in Real-world Social Network Scenarios},
+  title={Df-rap: A robust adversarial perturbation for defending against deepfakes in real-world social network scenarios},
   author={Qu, Zuomin and Xi, Zuping and Lu, Wei and Luo, Xiangyang and Wang, Qian and Li, Bin},
   journal={IEEE Transactions on Information Forensics and Security},
+  volume={19},
+  pages={3943--3957},
   year={2024},
   publisher={IEEE}
 }
 ```
+
 ### 7. License
 Licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/?spm=a2c22.12281978.0.0.3e4732ffcOYDZo) (Attribution-NonCommercial-ShareAlike 4.0 International).
 
