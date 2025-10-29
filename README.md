@@ -71,7 +71,7 @@ If our paper helps your research, please cite it in your publications:
 ### 7. License
 Licensed under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/?spm=a2c22.12281978.0.0.3e4732ffcOYDZo) (Attribution-NonCommercial-ShareAlike 4.0 International).
 
-The code is released for academic research use only. For other use, please contact me.
+The code is released for academic research use only. For other use, please contact us.
 
 ### Acknowledges
 
